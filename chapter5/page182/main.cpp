@@ -14,6 +14,12 @@ int main()
 		cout << i << "! = " << Factor(i) << endl;
 		cout << i << "! = " << Factor1(i) << endl;
 	}
+	
+	cout << "8!= " << Factor(8.4) << endl;
+	int a; 
+	double d;
+	cout << a << " " << d << endl;
+	
 	return 0;
 }
 
