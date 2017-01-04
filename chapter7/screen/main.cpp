@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "screen.h"
+#include "windowmanager.h"
 
 using std::cout;
 using std::endl;
@@ -18,6 +19,19 @@ int main(int argc, char *argv[])
 	s2.Display(cout);
 	cout << endl;
 	s2.Func();
+	
+	Screen s3(20,20,'w');
+	s3.Display(cout);
+	cout << endl;
+
+	WindowManager wm;
+	wm.AddScreen(s1);
+	wm.AddScreen(s3);
+	wm.Clear(0);
+	wm.Display(cout, 0);
+	cout << endl;	
+	wm.Display(cout, 1);
+	cout << endl;
 
 	return 0;
 	

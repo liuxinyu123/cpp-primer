@@ -3,7 +3,7 @@ CXXFLAGS = -Wall
 CXXFLAGS += -std=gnu++11
 
 target = main
-objects = main.o screen.o
+objects = main.o screen.o windowmanager.o
 
 $(target) : $(objects)
 	$(cc) $(objects) -o $(target)
@@ -11,6 +11,8 @@ $(target) : $(objects)
 main.o : screen.h
 
 screen.o : screen.h
+
+windowmanager.o : windowmanager.h
 
 .PHONY : clean
 

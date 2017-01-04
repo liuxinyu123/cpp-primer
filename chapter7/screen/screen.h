@@ -7,6 +7,7 @@
 class Screen
 {
 public:
+		friend class WindowManager;
 		using pos = std::string::size_type;
 		Screen() = default;
 		Screen(pos w, pos h, char c = ' ')
