@@ -20,8 +20,8 @@ int main()
 	//std::list<int>::difference_type sz = iList.end() - iList.begin();
 	
 	cout << "The list is: " << endl;
-	for(const auto &i : iList)
-		cout << i << " ";
+	for(auto it = iList.cbegin(); it != iList.cend(); ++it)
+		cout << *it << " ";
 	cout << endl;
 	cout << "The first element is:" << value << endl;
 	//cout << "The list's length is: " << sz << endl;
