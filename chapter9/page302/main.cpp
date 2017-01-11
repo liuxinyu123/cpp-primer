@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
 		cout << elem << " ";
 	cout << endl;
 
+	auto iter = strList.cbegin();
+	cout << "The first element in strList is : " << *iter << endl;
 	swap(strList, strList1);
 	cout << "After swap: " << endl;
 	cout << "The strList is: " << endl;
@@ -54,5 +56,22 @@ int main(int argc, char *argv[])
 	for(const auto &elem : strList1)
 		cout << elem << " ";
 	cout << endl;
+	cout << "The first element in strList is : " << *iter << endl;
+	
+	std::array<string, 4> strArr1 = {"hello", "hello", "hello", "hello"};
+	std::array<string, 4> strArr2{"world", "world", "world", "world"};
+	auto iter1 = strArr1.cbegin();
+
+	cout << "The strArr1 is: " << endl;
+	for(const auto &elem : strArr1)
+		cout << elem << " ";
+	cout << endl;
+	cout << "The first element in strArr1 is : " << *iter1 << endl;
+	swap(strArr1, strArr2);
+	cout << "After swap,The strArr1 is: " << endl;
+	for(const auto &elem : strArr1)
+		cout << elem << " ";
+	cout << endl;
+	cout << "The first element in strArr1 is : " << *iter1 << endl;
 	return 0;
 }
