@@ -2,9 +2,11 @@
 #include <list>
 #include <forward_list>
 #include <array>
+#include <string>
 
 using std::cout;
 using std::endl;
+using std::string;
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +23,10 @@ int main(int argc, char *argv[])
 	auto val4 = *(--iList.end());
  
 	cout << val3 << " " << val4 << endl;
+
+	string str;
+	str += "hello";
+	cout << str.at(str.size() - 1) << endl;
 	
 	return 0;
 }
