@@ -24,7 +24,7 @@ int main (int argc, char *argv[])
 	cout << endl;
 
 	int a1[] = {23, 534, 2523, 54, 25, 23, 22,35};
-	int a2[sizeof(a1) / sizeof (*a1)];
+	int a2[sizeof(a1) / sizeof (*a1) + 2];
 
 	copy(begin(a1), end(a1), begin(a2));
 
