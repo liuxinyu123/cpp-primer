@@ -1,5 +1,5 @@
 #include <iostream>
-#include <list>
+#include <vector>
 #include <string>
 #include <functional>
 #include <algorithm>
@@ -7,29 +7,37 @@
 using std::cout;
 using std::endl;
 using std::string;
-using std::list;
+using std::vector;
 using std::sort;
-//using namespace std::placeholders;
+using namespace std::placeholders;
 
 bool IsShorter (const string &s1 , const string &s2);
 
 int main (int argc, char *argv[])
 {
-	list<string> strList;
-	strList.push_back ("excuse");
-	strList.push_back ("me");
-	strList.push_back ("what");
-	strList.push_back ("are");
-	strList.push_back ("you");
-	strList.push_back ("doing");
+	vector<string> strVec;
+	strVec.push_back ("excuse");
+	strVec.push_back ("me");
+	strVec.push_back ("what");
+	strVec.push_back ("are");
+	strVec.push_back ("you");
+	strVec.push_back ("doing");
 
-	for (const auto &elem : strList)
+	for (const auto &elem : strVec)
 		cout << elem << " ";
 	cout << endl;
 
-	sort (strList.begin (), strList.end (), IsShorter);
-	//std::for_each (strList.begin (), strList.end (), [] (const string &s)
-					//{ cout << s << " "; });
+	sort (strVec.begin (), strVec.end (), IsShorter);
+	std::for_each (strVec.begin (), strVec.end (), [] (const string &s)
+					{ cout << s << " "; });
+	cout << endl;
+
+	sort (strVec.begin (), strVec.end (), std::bind (IsShorter, _2, _1));
+	std::for_each (strVec.begin (), strVec.end (), [] (const string &s)
+					{ cout << s << " "; });
+	cout << endl;
+
+	return 0;
 }
 
 bool IsShorter (const string &s1 , const string &s2)
