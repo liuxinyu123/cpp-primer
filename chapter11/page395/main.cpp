@@ -13,7 +13,7 @@ int main (int argc, char *argv[])
 
 	cout << word_count.bucket_count () << endl;
 	cout << word_count.max_bucket_count() << endl;
-	cout << word_count.bucket_size (0) << endl;
+	cout << word_count.bucket_size (1) << endl;
 	cout << word_count.bucket("hello") << endl;
 
 	return 0;
