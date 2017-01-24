@@ -14,5 +14,10 @@ int main (int argc, char *argv[])
 	cout << iSet.count (1) << endl;
 	cout << iSet.count (0) << endl;
 
+	auto it1 = iSet.lower_bound (3);
+	auto it2 = iSet.upper_bound (8);
+
+	cout << *it1 << " " << *it2 << endl;
+	
 	return 0;
 }
