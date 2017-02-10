@@ -8,6 +8,7 @@ int main (int argc, char *argv[])
 {
 	int *pia1 = new int[10];
 	int *pia2 = new int[10] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int *pia3 = new int[10] ();
 	string *psa1 = new string[10];
 	string *psa2 = new string[10] {"a", "an", "the", string (3, 'x')};
 
@@ -17,6 +18,10 @@ int main (int argc, char *argv[])
 
 	for (int i = 0; i < 10; ++i)
 		cout << *pia2++ << " ";
+	cout << endl;
+
+	for (int i = 0; i < 10; ++i)
+		cout << *pia3++ << " ";
 	cout << endl;
 
 	for (int i = 0; i < 10; ++i)
