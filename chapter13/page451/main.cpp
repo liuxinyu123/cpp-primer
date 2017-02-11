@@ -7,8 +7,8 @@ public:
 		~PrivateCopy () = default;
 
 private:
-		PrivateCopy (const PrivateCopy&) {}
-		PrivateCopy& operator= (const PrivateCopy&) {}
+		PrivateCopy (const PrivateCopy&);
+		PrivateCopy& operator= (const PrivateCopy&);
 };
 
 int main (int argc, char *argv[])
