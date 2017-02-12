@@ -7,6 +7,7 @@
 class Message 
 {
 friend class Folder;
+friend void swap (Message &m1, Message &m2);
 
 public:
 		explicit Message (const std::string &s = "")

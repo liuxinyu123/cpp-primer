@@ -6,13 +6,21 @@
 class Folder
 {
 friend class Message;
+friend void swap (Message &m1, Message &m2);
 
 public:
-		Folder ();
-		void AddMessage ();
-		void RemoveMessage ();
+		Folder () = default;
+		Folder (const Folder &f);
+		Folder& operator= (const Folder &f);
+		~Folder ();
+		void Save (Message &m);
+		void Remove (Message &m);
 private:
 		std::set<Message*> messages;
+		void AddMessage (Message *pm);
+		void RemoveMessage (Message *pm);
+		void AddToMessage (const Folder &f);
+		void RemoveFromMessage ();
 };
 
 #endif
