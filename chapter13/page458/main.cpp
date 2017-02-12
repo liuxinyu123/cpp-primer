@@ -11,8 +11,9 @@ int main (int argc, char *argv[])
 
 	cout << hp1.GetString () << " " << hp2.GetString () << endl;
 	cout << hp1.GetInt () << " " << hp2.GetInt () << endl;
-
-	Swap (hp1, hp2);
+	
+	using std::swap;
+	swap (hp1, hp2);
 	cout << hp1.GetString () << " " << hp2.GetString () << endl;
 	cout << hp1.GetInt () << " " << hp2.GetInt () << endl;
 

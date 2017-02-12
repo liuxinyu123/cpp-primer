@@ -24,11 +24,5 @@ HasPtr::~HasPtr ()
 {
 	delete ps;
 }
-inline 
-void Swap (HasPtr &hp1, HasPtr &hp2)
-{
-	using std::swap;
-	swap (hp1.ps, hp2.ps);
-	swap (hp1.i, hp2.i);
-}
+
 
