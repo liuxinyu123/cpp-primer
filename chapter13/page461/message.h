@@ -17,8 +17,8 @@ public:
 		Message (const Message &m);
 		Message& operator= (const Message &m);
 		~Message ();
-		void Save (const Folder &f);
-		void Remove (const Folder &f);
+		void Save (Folder &f);
+		void Remove (Folder &f);
 		void PrintFolder ();
 private:
 		std::string contents;
@@ -26,8 +26,8 @@ private:
 
 		void AddToFolders (const Message &m);
 		void RemoveFromFolders ();
-		void AddFolder (const Folder &f);
-		void RemoveFolder (const Folder &f);
+		void AddFolder (Folder &f);
+		void RemoveFolder (Folder &f);
 		void PrintContent ();
 };
 

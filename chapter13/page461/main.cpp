@@ -12,6 +12,19 @@ int main (int argc, char *argv[])
 	Folder f1 ("folder1");
 	Folder f2 ("folder2");
 
+	f1.Save (m1);
+	f1.Save (m2);
+	m1.Save (f2);
+	m2.Save (f2);
+
+	f1.PrintMessage ();
+	f2.PrintMessage ();
+	m1.PrintFolder ();
+	m2.PrintFolder ();
+
+	m3.PrintFolder ();
+	m4.PrintFolder ();
+
 
 	return 0;
 }

@@ -8,6 +8,12 @@ Folder::Folder (const Folder &f)
 	AddToMessage (*this);			
 }
 
+Folder::~Folder ()
+{
+	for (auto m : messages)
+		m -> RemoveFolder (*this);	
+}
+
 Folder& Folder::operator= (const Folder &f)
 {
 	RemoveFromMessage ();
@@ -18,29 +24,29 @@ Folder& Folder::operator= (const Folder &f)
 	return *this;
 }
 
-void Folder::Save (const Message &m)
+void Folder::Save (Message &m)
 {
 	messages.insert (&m);
 	m.AddFolder (*this);
 }
 
-void Folder::Remove (const Message &m)
+void Folder::Remove (Message &m)
 {
 	messages.erase (&m);
 	m.RemoveFolder (*this);
 }
 
-void Folder::AddMessage (const Message &m)
+void Folder::AddMessage (Message &m)
 {
 	messages.insert (&m);	
 }
 
-void Folder::RemoveMessage (const Message &m)
+void Folder::RemoveMessage (Message &m)
 {
 	messages.erase (&m);
 }
 
-void Folder::AddToMessage (const Folder &f)
+void Folder::AddToMessage (Folder &f)
 {
 	for (auto m : f.messages)
 		m -> Save (f);	
@@ -52,26 +58,11 @@ void Folder::RemoveFromMessage ()
 		m -> Remove (*this);
 }
 
-void swap (Folder &f1, Folder &f2)
-{
-	using std::swap;
-
-	for (auto m : f1.messages)
-		m -> Remove (f1);
-	for (auto m : f2.messages)
-		m -> Remove (f2);
-
-	swap (f1.messages, f2.messages);
-	swap (f1.name, f2.name);
-
-	for (auto m : f1.messages)
-		m -> Save (f1);
-	for (auto m : f2.messages)
-		m -> Save (f2);
-}
 
 void Folder::PrintMessage ()
 {
+	std::cout << name << " has message: " << std::endl;
+
 	for (auto m : messages)
 		m -> PrintContent ();
 }
