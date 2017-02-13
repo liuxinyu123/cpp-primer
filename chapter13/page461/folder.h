@@ -24,8 +24,8 @@ private:
 		std::set<Message*> messages;
 		std::string name;
 
-		void AddMessage (const Message *pm);
-		void RemoveMessage (const Message *pm);
+		void AddMessage (const Message &m);
+		void RemoveMessage (const Message &m);
 		void AddToMessage (const Folder &f);
 		void RemoveFromMessage ();
 		void PrintName ();

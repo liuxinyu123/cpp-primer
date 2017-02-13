@@ -81,3 +81,13 @@ void Message::PrintContent ()
 {
 	std::cout << contents << std::endl;
 }
+
+void Message::AddFolder (const Folder &f)
+{
+	folders.insert (&f);
+}
+
+void Message::RemoveFolder (const Folder &f)
+{
+	folders.erase (&f);
+}

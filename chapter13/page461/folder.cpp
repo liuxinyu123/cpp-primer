@@ -21,21 +21,23 @@ Folder& Folder::operator= (const Folder &f)
 void Folder::Save (const Message &m)
 {
 	messages.insert (&m);
+	m.AddFolder (*this);
 }
 
 void Folder::Remove (const Message &m)
 {
 	messages.erase (&m);
+	m.RemoveFolder (*this);
 }
 
-void Folder::AddMessage (const Message *pm)
+void Folder::AddMessage (const Message &m)
 {
-	messages.insert (pm);	
+	messages.insert (&m);	
 }
 
-void Folder::RemoveMessage (const Message *pm)
+void Folder::RemoveMessage (const Message &m)
 {
-	messages.erase (pm);
+	messages.erase (&m);
 }
 
 void Folder::AddToMessage (const Folder &f)

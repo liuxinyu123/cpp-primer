@@ -26,6 +26,8 @@ private:
 
 		void AddToFolders (const Message &m);
 		void RemoveFromFolders ();
+		void AddFolder (const Folder &f);
+		void RemoveFolder (const Folder &f);
 		void PrintContent ();
 };
 
