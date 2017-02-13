@@ -4,6 +4,8 @@
 #include <string>
 #include <set>
 
+class Folder;
+
 class Message 
 {
 friend class Folder;
@@ -15,15 +17,16 @@ public:
 		Message (const Message &m);
 		Message& operator= (const Message &m);
 		~Message ();
-		void Save (Folder &f);
-		void Remove (Folder &f);
-
+		void Save (const Folder &f);
+		void Remove (const Folder &f);
+		void PrintFolder ();
 private:
 		std::string contents;
 		std::set<Folder*> folders;
 
 		void AddToFolders (const Message &m);
 		void RemoveFromFolders ();
+		void PrintContent ();
 };
 
 #endif 

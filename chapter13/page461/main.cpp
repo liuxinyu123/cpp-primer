@@ -9,7 +9,8 @@ int main (int argc, char *argv[])
 	Message m3 = m1;
 	Message m4 (m2);
 
-	Folder f1, f2, f3;
+	Folder f1 ("folder1");
+	Folder f2 ("folder2");
 
 
 	return 0;

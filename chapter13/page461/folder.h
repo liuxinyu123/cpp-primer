@@ -2,25 +2,33 @@
 #define _FOLDER_H_
 
 #include <set>
+#include <string>
+
+class Message;
 
 class Folder
 {
 friend class Message;
-friend void swap (Message &m1, Message &m2);
+friend void swap (Folder &f1, Folder &f2);
 
 public:
-		Folder () = default;
+		Folder (const std::string &s = "")
+			:name (s) {}
 		Folder (const Folder &f);
 		Folder& operator= (const Folder &f);
 		~Folder ();
-		void Save (Message &m);
-		void Remove (Message &m);
+		void Save (const Message &m);
+		void Remove (const Message &m);
+		void PrintMessage ();
 private:
 		std::set<Message*> messages;
-		void AddMessage (Message *pm);
-		void RemoveMessage (Message *pm);
+		std::string name;
+
+		void AddMessage (const Message *pm);
+		void RemoveMessage (const Message *pm);
 		void AddToMessage (const Folder &f);
 		void RemoveFromMessage ();
+		void PrintName ();
 };
 
 #endif

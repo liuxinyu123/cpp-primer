@@ -1,4 +1,7 @@
+#include <iostream>
 #include "message.h"
+#include "folder.h"
+#include <set>
 
 Message::Message (const Message &m)
 	:contents (m.contents), folders (m.folders)
@@ -21,13 +24,13 @@ Message::~Message ()
 	RemoveFromFolders ();
 }
 
-void Message::Save (Folder &f)
+void Message::Save (const Folder &f)
 {
 	folders.insert (&f);
 	f.AddMessage (this);
 }
 
-void Message::Remove (Folder &f)
+void Message::Remove (const Folder &f)
 {
 	folders.erase (&f);
 	f.RemoveMessage (this);
@@ -35,7 +38,7 @@ void Message::Remove (Folder &f)
 
 void Message::AddToFolders (const Message &m)
 {
-	for (auto f : m)
+	for (auto f : m.folders)
 		f -> AddMessage (this);
 }
 
@@ -45,7 +48,7 @@ void Message::RemoveFromFolders ()
 		f -> RemoveMessage (this);
 }
 
-void Message::swap (Message &m1, Message &m2)
+void swap (Message &m1, Message &m2)
 {
 	using std::swap;
 
@@ -62,4 +65,19 @@ void Message::swap (Message &m1, Message &m2)
 	for (auto f : m2.folders)
 		f -> AddMessage (&m2);
 		
+}
+
+void Message::PrintFolder ()
+{
+	std::cout << contents << " : " << std::endl;
+
+	for (auto f : folders)
+		f -> PrintName ();
+
+	std::cout << std::endl;	
+}
+
+void Message::PrintContent ()
+{
+	std::cout << contents << std::endl;
 }
