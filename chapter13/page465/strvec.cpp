@@ -3,6 +3,7 @@
 #include <utility>
 #include "strvec.h"
 
+std::allocator<std::string> StrVec::alloc;
 
 StrVec::StrVec (const StrVec &sv)
 {
@@ -34,7 +35,7 @@ void StrVec::PushBack (const std::string &s)
 
 void StrVec::Reallocate ()
 {
-	auto new_capacity = Size () ? 2 * Capacity () : 1;
+	auto new_capacity = Size () ? 2 * Size() : 1;
 	auto newdata = alloc.allocate (new_capacity);
 	auto dest = newdata;
 	auto src = elem;
@@ -72,4 +73,12 @@ void StrVec::Print ()
 	while (p != first_empty)
 		std::cout << *p++ << " ";
 	std::cout << std::endl;
+}
+
+void StrVec::PopBack ()
+{
+	if (Size ())
+	{
+		alloc.destroy (first_empty--);
+	}
 }

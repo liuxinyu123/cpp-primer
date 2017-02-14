@@ -15,6 +15,7 @@ public:
 		StrVec& operator= (const StrVec &sv);
 		~StrVec ();
 		void PushBack(const std::string &s);
+		void PopBack ();
 		size_t Size () const 
 		{
 			return first_empty - elem;
@@ -37,10 +38,9 @@ public:
 		void Print ();
 
 private:
-		static std::allocator<std::string> alloc;
 		void Check ()
 		{
-			if (Size () == Capacity ())
+			if (first_empty == cap)
 				Reallocate ();
 		}
 		void Reallocate ();
@@ -52,6 +52,7 @@ private:
 		std::string *elem;
 		std::string *first_empty;
 		std::string *cap;
+		static std::allocator<std::string> alloc;
 
 };
 
