@@ -38,7 +38,11 @@ public:
 
 private:
 		static std::allocator<std::string> alloc;
-		void Check ();
+		void Check ()
+		{
+			if (Size () == Capacity ())
+				Reallocate ();
+		}
 		void Reallocate ();
 		void Free ();
 		std::pair<std::string*, std::string*> AllocateNCopy (const std::string *b, const std::string *e);
