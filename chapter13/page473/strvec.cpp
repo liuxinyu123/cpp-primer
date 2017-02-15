@@ -12,7 +12,7 @@ StrVec::StrVec (const StrVec &sv)
 	first_empty = cap = newdata.second;	
 }
 
-StrVec::StrVec (const StrVec &&sv) noexcept 
+StrVec::StrVec (StrVec &&sv) noexcept 
 	:elem (sv.elem), first_empty (sv.first_empty), cap (sv.cap)
 {
 	elem = first_empty = cap = nullptr;
@@ -24,6 +24,21 @@ StrVec& StrVec::operator= (const StrVec &sv)
 	Free ();
 	elem = newdata.first;
 	first_empty = cap = newdata.second;
+
+	return *this;
+}
+
+StrVec& StrVec::operator= (StrVec &&sv) noexcept
+{
+	if (this != &sv)
+	{
+		Free ();
+		elem = sv.elem;
+		first_empty = sv.first_empty;
+		cap = sv.cap;
+		
+		sv.elem = sv.first_empty = sv.cap = nullptr;
+	}
 
 	return *this;
 }

@@ -12,8 +12,9 @@ public:
 		StrVec ()
 			:elem (nullptr), first_empty (nullptr), cap (nullptr) {}
 		StrVec (const StrVec &sv);
-		StrVec (const StrVec &&sv) noexcept;
+		StrVec (StrVec &&sv) noexcept;
 		StrVec& operator= (const StrVec &sv);
+		StrVec& operator= (StrVec &&sv) noexcept;
 		~StrVec ();
 		void PushBack(const std::string &s);
 		void PopBack ();
