@@ -8,6 +8,8 @@ public:
 		friend std::ostream& operator<< (std::ostream &os, const HasPtr &hp);
 		friend std::istream& operator>> (std::istream &is, HasPtr &hp);
 		friend HasPtr operator+ (const HasPtr &hp1, const HasPtr &hp2);
+		friend bool operator== (const HasPtr &hp1, const HasPtr &hp2);
+		friend bool operator!= (const HasPtr &hp1, const HasPtr &hp2);
 public:
 		HasPtr (const std::string &s = std::string (), int val = 0)
 			:ps (new std::string (s)), i (val) {}
@@ -61,6 +63,16 @@ HasPtr operator+ (const HasPtr &hp1, const HasPtr &hp2)
 	return ret;
 }
 
+bool operator== (const HasPtr &hp1, const HasPtr &hp2)
+{
+	return *hp1.ps == *hp2.ps && hp1.i == hp2.i;
+}
+
+bool operator!= (const HasPtr &hp1, const HasPtr &hp2)
+{
+	return !(hp1 == hp2);
+}
+
 int main (int argc, char *argv[])
 {
 	HasPtr hp1 ("hello", 42);
@@ -70,7 +82,11 @@ int main (int argc, char *argv[])
 	HasPtr hp3 = hp1 + hp2;
 
 	std::cout << hp3 << std::endl;
+	
+	if (hp1 != hp2)
+		std::cout << "not equal" << std::endl;
 
+	std::cout << "please input data to HasPtr " << std::endl;
 	std::cin >> hp2;
 	std::cout << hp2 << std::endl;
 
