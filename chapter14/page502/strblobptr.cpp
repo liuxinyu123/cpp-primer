@@ -28,3 +28,19 @@ std::shared_ptr<std::vector<std::string>>
 
 	return p;
 }
+
+StrBlobPtr& StrBlobPtr::operator++ ()
+{
+	Check (curr, "incr past end of StrBlobPtr");
+	++curr;
+
+	return *this;
+}
+
+StrBlobPtr& StrBlobPtr::operator-- ()
+{
+	--curr;
+	Check (curr, "decr past begin of StrBlobPtr");
+
+	return *this;
+}

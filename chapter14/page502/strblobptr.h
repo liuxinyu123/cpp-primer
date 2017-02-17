@@ -18,6 +18,8 @@ public:
 			:wptr (sb.data), curr (i)  {}
 		std::string& Deref () const;
 		StrBlobPtr& Incr ();
+		StrBlobPtr& operator++ ();
+		StrBlobPtr& operator-- ();
 private:
 		std::shared_ptr<std::vector<std::string>> 
 			Check (std::size_t i, const std::string &msg) const;
