@@ -1,6 +1,7 @@
 #ifndef _STRBLOB_H_
 #define _STRBLOB_H_
 
+#include <iostream>
 #include <vector>
 #include <initializer_list>
 #include <memory>
@@ -9,6 +10,7 @@
 class StrBlob
 {
 
+		friend std::ostream& operator<< (std::ostream &os, const StrBlob &sb);
 public:
 		typedef std::vector<std::string>::size_type size_type;
 		StrBlob ();
@@ -21,23 +23,11 @@ public:
 		{
 			return data -> empty ();
 		}
-		void PushBack (const std::string &s)
-		{
-			data -> push_back (s);
-		}
-		void PopBack ()
-		{
-			data -> pop_back ();
-		}
-		std::string& Front () const
-		{
-			return data -> front ();
-		}
-		std::string& Back () const 
-		{
-			return data -> back ();
-		}
-
+		void PushBack (const std::string &s);
+		void PopBack ();
+		std::string& Front () const;
+		std::string& Back () const;
+		
 private:
 		void Check (size_type i, const std::string &msg) const;
 private:
