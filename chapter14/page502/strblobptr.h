@@ -20,6 +20,8 @@ public:
 		StrBlobPtr& Incr ();
 		StrBlobPtr& operator++ ();
 		StrBlobPtr& operator-- ();
+		StrBlobPtr operator++ (int);
+		StrBlobPtr operator-- (int);
 private:
 		std::shared_ptr<std::vector<std::string>> 
 			Check (std::size_t i, const std::string &msg) const;

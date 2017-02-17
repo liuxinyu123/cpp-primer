@@ -16,6 +16,10 @@ int main (int argc, char *argv[])
 	sbp1.Incr ();
 	cout << sbp1.Deref () << endl;
 
+	cout << (++sbp1).Deref () << endl;
+	cout << sbp1++.Deref () << endl;
+	cout << sbp1.Deref () << endl;
+
 
 	return 0;
 }

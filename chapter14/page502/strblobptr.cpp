@@ -44,3 +44,19 @@ StrBlobPtr& StrBlobPtr::operator-- ()
 
 	return *this;
 }
+
+StrBlobPtr StrBlobPtr::operator++ (int)
+{
+	auto p = *this;
+	++*this;
+
+	return p;
+}
+
+StrBlobPtr StrBlobPtr::operator-- (int)
+{
+	auto p = *this;
+	--*this;
+	
+	return p;
+}
