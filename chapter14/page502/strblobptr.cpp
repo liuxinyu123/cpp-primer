@@ -1,0 +1,30 @@
+#include <stdexcept>
+#include "strblobptr.h"
+#include "strblob.h"
+
+std::string& StrBlobPtr::Deref () const
+{
+	auto p = Check (curr, "Deref pass end");
+	return (*p)[curr];
+}
+
+StrBlobPtr& StrBlobPtr::Incr ()
+{
+	Check (curr, "incr past end of StrBlobPtr");
+	++curr;
+
+	return *this;
+}
+
+std::shared_ptr<std::vector<std::string>> 
+	StrBlobPtr::Check (std::size_t i, const std::string &msg) const 
+{
+	auto p = wptr.lock ();
+
+	if (!p)
+		throw std::runtime_error ("unbound StrBlobPtr");
+	if (curr >= p -> size ())
+		throw std::out_of_range (msg);
+
+	return p;
+}

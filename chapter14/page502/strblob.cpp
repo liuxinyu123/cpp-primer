@@ -2,6 +2,7 @@
 #include <memory>
 #include <stdexcept>
 #include "strblob.h"
+#include "strblobptr.h"
 
 StrBlob::StrBlob ()
 	:data (std::make_shared<std::vector<std::string>> ()) {}
@@ -39,4 +40,15 @@ std::ostream& operator<< (std::ostream &os, const StrBlob &sb)
 		os << elem << " ";
 
 	return os;
+}
+
+StrBlobPtr StrBlob::Begin () 
+{
+	return StrBlobPtr (*this);
+}
+
+StrBlobPtr StrBlob::End () 
+{
+	auto p = StrBlobPtr (*this, Size ());
+	return p;
 }

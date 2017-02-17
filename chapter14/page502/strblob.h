@@ -7,9 +7,11 @@
 #include <memory>
 #include <string>
 
+class StrBlobPtr;
+
 class StrBlob
 {
-
+		friend class StrBlobPtr;
 		friend std::ostream& operator<< (std::ostream &os, const StrBlob &sb);
 public:
 		typedef std::vector<std::string>::size_type size_type;
@@ -27,6 +29,8 @@ public:
 		void PopBack ();
 		std::string& Front () const;
 		std::string& Back () const;
+		StrBlobPtr Begin ();
+		StrBlobPtr End ();
 		
 private:
 		void Check (size_type i, const std::string &msg) const;
