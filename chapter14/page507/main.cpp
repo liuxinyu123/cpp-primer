@@ -27,9 +27,13 @@ int main (int argc, char *argv[])
 	for (std::size_t i = 0; i < strVec.size (); ++i)
 		ps (strVec[i]);
 	std::cout << std::endl;
+	
+	//one method
+	PrintString pError (std::cerr, '\n');
+	std::for_each (strVec.begin (), strVec.end (), pError);
 
-	//PrintString pError (std::cerr, '\n');
-	std::for_each (strVec.begin (), strVec.end (), PrintString (std::cerr, '\n'));
+	//another method
+	//std::for_each (strVec.begin (), strVec.end (), PrintString (std::cerr, '\n'));
 
 	return 0;
 }
