@@ -21,7 +21,14 @@ int main (int argc, char *argv[])
 	cout << sbp1.Deref () << endl;
 	cout << sbp1.operator++ (0).Deref () << endl;
 	cout << sbp1.operator++ ().Deref () << endl;
-	cout << sbp1.operator++ ().Deref () << endl;
+	//cout << sbp1.operator++ ().Deref () << endl;
+
+	StrBlob sb2 = {"how", "are", "you"};
+	StrBlobPtr sbp2 (sb2);
+	cout << *sbp2 << endl;
+	*sbp2 = "ok";
+	cout << sbp2 -> size () << endl;
+	cout << (*sbp2).size () << endl;
 
 	return 0;
 }

@@ -60,3 +60,15 @@ StrBlobPtr StrBlobPtr::operator-- (int)
 	
 	return p;
 }
+
+std::string& StrBlobPtr::operator* () const
+{
+	auto p = Check (curr, "Deref past end of StrBlobPtr");
+
+	return (*p)[curr];
+}
+
+std::string* StrBlobPtr::operator-> () const
+{
+	return & this -> operator* ();
+}

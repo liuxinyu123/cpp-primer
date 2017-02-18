@@ -22,6 +22,8 @@ public:
 		StrBlobPtr& operator-- ();
 		StrBlobPtr operator++ (int);
 		StrBlobPtr operator-- (int);
+		std::string& operator* () const;
+		std::string* operator-> () const;
 private:
 		std::shared_ptr<std::vector<std::string>> 
 			Check (std::size_t i, const std::string &msg) const;
