@@ -19,7 +19,9 @@ int main (int argc, char *argv[])
 	cout << (++sbp1).Deref () << endl;
 	cout << sbp1++.Deref () << endl;
 	cout << sbp1.Deref () << endl;
-
+	cout << sbp1.operator++ (0).Deref () << endl;
+	cout << sbp1.operator++ ().Deref () << endl;
+	cout << sbp1.operator++ ().Deref () << endl;
 
 	return 0;
 }
