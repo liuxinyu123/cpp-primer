@@ -30,6 +30,22 @@ int main (int argc, char *argv[])
 	std::cout << f3 (4, 3) << std::endl;
 
 
+	std::map<std::string, std::function<int (int, int)>> binops;
+	binops.insert ({"+", Add});
+	binops.insert ({"-", std::minus<int> ()});
+	binops.insert ({"*", std::multiplies<int> ()});
+	binops.insert ({"/", Divide ()});
+	binops.insert ({"%", mod});
+
+	int a = 25;
+	int b = 4;
+
+	std::cout << a << " + " << b << " = " << binops["+"] (a, b) << std::endl;
+	std::cout << a << " - " << b << " = " << binops["-"] (a, b) << std::endl;
+	std::cout << a << " * " << b << " = " << binops["*"] (a, b) << std::endl;
+	std::cout << a << " / " << b << " = " << binops["/"] (a, b) << std::endl;
+	std::cout << a << " % " << b << " = " << binops["%"] (a, b) << std::endl;
+
 
 	return 0;
 }
