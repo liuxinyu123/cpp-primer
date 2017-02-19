@@ -31,5 +31,12 @@ int main (int argc, char *argv[])
 	a += si;
 	std::cout << a << std::endl;
 
+	si = 3.14;
+	std::cout << si << std::endl;
+
+	double b = 2.15;
+	b += si;
+	std::cout << b << std::endl;
+
 	return 0;
 }
