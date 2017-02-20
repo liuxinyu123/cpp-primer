@@ -6,7 +6,7 @@ public:
 		{
 		}
 		virtual void f2 ();
-		void f3 ();
+		virtual void f3 () final;
 };
 
 class B : public A
@@ -17,7 +17,7 @@ public:
 		{}
 		void f2 (int i) override
 		{}
-		void f3 () override
+		void f3 () 
 		{}
 		void f4 () override
 		{}
