@@ -8,7 +8,7 @@ class DiscQuote : public Quote
 
 public:
 		DiscQuote () = default;
-		DiscQuote (const std::string &s, double p, std::size_t q, double dis);
+		DiscQuote (const std::string &s, double p, std::size_t q, double disc);
 		double net_price (std::size_t n) const = 0;
 private:
 		
