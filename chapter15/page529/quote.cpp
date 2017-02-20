@@ -12,3 +12,8 @@ double Quote::net_price (std::size_t n) const
 {
 	return price * n;
 }
+
+double Quote::get_price () const 
+{
+	return price;
+}

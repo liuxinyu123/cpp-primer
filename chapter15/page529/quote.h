@@ -11,6 +11,7 @@ public:
 		Quote (const std::string &s, double p);
 		std::string Isbn () const;
 		virtual double net_price (std::size_t n) const;
+		double get_price () const;
 private:
 		std::string book_no;
 
