@@ -14,7 +14,12 @@ class Final final : public Base
 
 };
 
-class Bad : public NoDerived
+class Bad1 : public NoDerived
+{
+
+};
+
+class Bad2 : public Final
 {
 
 };
