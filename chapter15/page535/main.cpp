@@ -47,4 +47,8 @@ int main (int argc, char *argv[])
 	b = d2;
 
 	std::cout << b << std::endl;
+	
+	Base *pb = &d2;
+	//Derived *pd = pb;
+	return 0;
 }
