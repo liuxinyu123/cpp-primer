@@ -33,6 +33,26 @@ public:
 			return pro_mem;
 		}
 };
+
+class Derive_from_Pub : public Pub_Derive
+{
+
+public:
+		int f1 ()
+		{
+			return pro_mem;
+		}
+};
+
+class Derive_from_Pri : public Pri_Derive
+{
+public:
+		int f1 ()
+		{
+			return pro_mem;
+		}
+};
+
 int main (int argc, char *argv[])
 {
 	Pub_Derive d1;
