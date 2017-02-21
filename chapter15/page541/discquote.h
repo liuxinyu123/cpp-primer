@@ -5,6 +5,7 @@
 
 class DiscQuote : public Quote
 {
+//friend std::ostream& operator<< (std::ostream &os, const DiscQuote &dq);
 
 public:
 		DiscQuote () = default;
