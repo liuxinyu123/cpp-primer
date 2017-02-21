@@ -20,6 +20,10 @@ public:
 		{
 			return i;
 		}
+		int get_base_mem ()
+		{
+			return Base::i;
+		}
 protected:
 		int i;
 };
@@ -28,6 +32,6 @@ int main (int argc, char *argv[])
 {
 	Derived d (22);
 	std::cout << d.get_mem () << std::endl;
-
+	std::cout << d.get_base_mem () << std::endl;
 	return 0;
 }
