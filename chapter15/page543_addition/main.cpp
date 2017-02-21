@@ -3,7 +3,7 @@ class Base
 {
 
 public:
-		int pub_mem;
+		int pub_mem ();
 private:
 		int pri_mem;
 protected:
@@ -35,5 +35,11 @@ public:
 };
 int main (int argc, char *argv[])
 {
+	Pub_Derive d1;
+	Pri_Derive d2;
 	
+	d1.pub_mem ();
+	//d2.pub_mem ();
+
+	return 0;	
 }
