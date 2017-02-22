@@ -33,8 +33,9 @@ int main (int argc, char *argv[])
 {
 	std::cout << Compare ("hello", "helle") << std::endl;
 	std::cout << Compare (23, 2) << std::endl;
-	std::cout << Compare1<std::string> ("hello", "helle") << std::endl;
-	std::cout << Compare1<int> (23, 2) << std::endl;
-
+	std::cout << Compare1 (23, 2) << std::endl;
+	std::cout << Compare1 (23.2, 43.2) << std::endl;
+	std::cout << Compare1 (std::string("hello"), std::string("hellz")) << std::endl;
+		
 	return 0;
 }
